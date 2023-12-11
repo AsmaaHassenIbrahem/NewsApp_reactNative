@@ -1,23 +1,23 @@
+import i18next from "i18next";
+import {initReactI18next } from "react-i18next";
+import en from "./translations/en";
+import ar from "./translations/ar";
 
-
-import { Localization } from "expo";
-import i18n from "i18next";
-import { reactI18nextModule , initReactI18next} from "react-i18next";
-import {en} from "./translations/en.json"
-import {ar} from "./translations/ar.json"
-const resources = {
- en: { translation: en },
- ar: { translation: ar },
+const languageResources = {
+  ar: {translation: ar, },
+  en: { translation: en,},
 };
 
-i18n.use(reactI18nextModule).init({
-  resources,
-  lng: Localization.locale,
-  fallbackLng: "en",
+i18next.use(initReactI18next).init({
+  resources: languageResources,
+  compatibilityJSON: 'v3', //To make it work for Android devices, add this line.
+
+  defaultLanguage: "ar",
+  //language to use if translations in user language are not available
+  fallbackLng: "ar",
   interpolation: {
-    escapeValue: false,
+    escapeValue: false, // not needed for react!!
   },
-  cleanCode: true,
 });
 
-export default i18n;
+export default i18next;

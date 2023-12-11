@@ -32,7 +32,7 @@ function TabScreens() {
         name={Strings.settings}
         component={SettingsScreen}
         options={{
-          //tabBarLabel: t(Strings.settings),
+          tabBarLabel: t(Strings.settings),
           tabBarIcon: ({ color }) => (
             <Ionicons name={Strings.settings} color={color} size={20} />
           ),

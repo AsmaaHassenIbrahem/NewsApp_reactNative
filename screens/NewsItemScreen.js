@@ -8,7 +8,10 @@ function NewsItemScreen({ title, image, onPress }) {
     <View
       style={[
         styles.cardContainer,
-        { backgroundColor: theme.primary, shadowColor: theme.secondry },
+        {
+          backgroundColor: theme.primary,
+          shadowColor: theme.secondry,
+        },
       ]}
     >
       <Pressable onPress={onPress}>
@@ -18,7 +21,7 @@ function NewsItemScreen({ title, image, onPress }) {
           <Text
             style={[
               styles.textStyle,
-              { borderColor: theme.secondry, color: theme.textColor },
+              { borderColor: theme.secondry, color: theme.text },
             ]}
           >
             {title}
@@ -44,7 +47,7 @@ const styles = StyleSheet.create({
   },
 
   textStyle: {
-    width: "80%",
+    maxWidth: "80%",
     flex: 1,
     flexWrap: "wrap",
   },
@@ -52,16 +55,5 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
     height: 100,
     width: 200,
-  },
-
-  textcontainer: {
-    position: "absolute",
-    width: 250,
-    height: 30,
-    bottom: 0,
-    padding: 5,
-    backgroundColor: "rgba(0,0,0, 0.3)",
-    borderBottomLeftRadius: 10,
-    borderBottomRightRadius: 10,
   },
 });
