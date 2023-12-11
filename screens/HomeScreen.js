@@ -1,5 +1,4 @@
-import { StyleSheet, View, Text, FlatList } from "react-native";
-import axios from "axios";
+import { StyleSheet, View, FlatList, Text } from "react-native";
 import { Strings } from "../utilities/String";
 import { useState, useEffect } from "react";
 import NewsItemScreen from "./NewsItemScreen.js";
@@ -28,6 +27,24 @@ function HomeScreen({ navigation }) {
     );
   }
 
+  if(loading){
+    return(
+      <View style={[styles.container, { backgroundColor: theme.background }]}>
+        <Text> Loading ...</Text>
+        </View>
+
+    )
+  }
+
+  if(error){
+    return(
+      <View style={[styles.container, { backgroundColor: theme.background }]}>
+        <Text> Error ...</Text>
+        </View>
+
+    )
+  }
+  
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
       <SearchBar
