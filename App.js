@@ -7,7 +7,6 @@ import DetailsNewsScreen from "./screens/DetailsNewsScreen";
 import TabScreens from "./screens/TabScreens";
 import { Strings } from "./utilities/String";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { Fragment } from "react";
 import { AppProvider, useAppContext } from "./storage/AppProvider";
 
 const Stack = createNativeStackNavigator();
