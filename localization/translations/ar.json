@@ -1,0 +1,12 @@
+{
+    "news" : "الأخبار", 
+    "home" : "الرئيسية",
+    "settings" : "الإعدادات",
+    "details" : "التفاصيل", 
+    "textToggleLanguage":" بدل لتغيير اللغة",
+    "textToogleThemeMood":" بدل لتغيير سمة الهاتف",
+    "dark": "ليلي",
+    "Light": "نهاري",
+    "english": "الانجليزية",
+    "arabic" : "العربيه"
+}
