@@ -1,17 +1,19 @@
 import { StyleSheet, View, FlatList, Text } from "react-native";
 import { Strings } from "../utilities/String";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import NewsItemScreen from "./NewsItemScreen.js";
-import UseAxios from "../hooks/UseAxios";
 import SearchBar from "react-native-material-design-searchbar";
 import { useAppContext } from "../storage/AppProvider";
+import getNewsDataApi from "../api/getNewsDataApi";
+import { useTranslation } from "react-i18next";
 
 function HomeScreen({ navigation }) {
   const { theme } = useAppContext();
 
   const [search, setSearch] = useState("");
+  const { t } = useTranslation();
 
-  const { newsData, loading, error } = UseAxios();
+  const { response, loading, error } = getNewsDataApi(Strings.API_KET);
 
   function renderDataItem(itemData) {
     function pressHandler() {
@@ -39,7 +41,7 @@ function HomeScreen({ navigation }) {
   if(error){
     return(
       <View style={[styles.container, { backgroundColor: theme.background }]}>
-        <Text> Error ...</Text>
+        <Text> {error.toString()}</Text>
         </View>
 
     )
@@ -50,7 +52,7 @@ function HomeScreen({ navigation }) {
       <SearchBar
         onSearchChange={(text) => setSearch(text)}
         height={50}
-        placeholder={"Search..."}
+        placeholder={t(Strings.searchPlaceHolder)}
         autoCorrect={false}
         padding={5}
         iconColor={theme.secondry}
@@ -61,7 +63,7 @@ function HomeScreen({ navigation }) {
 
       <FlatList
         alwaysBounceVertical={false}
-        data={newsData.filter(
+        data={response.filter(
           (newData) => search == "" || newData.title.indexOf(search) > -1
         )}
         keyExtractor={(item, i) => i}

@@ -13,11 +13,13 @@ function SettingsScreen() {
     <View style={[styles.container, { backgroundColor: theme.background }]}>
       <View style={styles.toogleContainerStyle}>
         <Text style={[styles.TextStyle, { color: theme.text }]}>
-          {t("textToogleThemeMood")}
+          {t(Strings.textToogleThemeMood)}
         </Text>
         <Switch
           activeText={t(Strings.dark)}
           inActiveText={t(Strings.Light)}
+          circleActiveColor= {theme.background }
+          backgroundActive={theme.secondry}
           onValueChange={() => toggleDarkMode()}
           circleBorderWidth={2}
           switchWidthMultiplier={5}
@@ -34,9 +36,10 @@ function SettingsScreen() {
           activeText={t(Strings.arabic)}
           inActiveText={t(Strings.english)}
           onValueChange={() => toggleLanguage()}
+          backgroundActive={theme.secondry}
           circleBorderWidth={2}
           switchWidthMultiplier={5}
-          value={language == "ar"}
+          value={language == Strings.enKey}
         />
       </View>
     </View>

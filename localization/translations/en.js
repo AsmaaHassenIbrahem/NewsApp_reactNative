@@ -9,4 +9,5 @@ export default {
   light: "Light",
   english: "English",
   arabic: "Arabic",
+  searchPlaceHolder :"Search...",
 };

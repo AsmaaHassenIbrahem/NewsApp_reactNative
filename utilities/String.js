@@ -13,5 +13,7 @@ export const Strings ={
     enKey: "en",
     textToggleLanguage:"textToggleLanguage",
     textToogleThemeMood:"textToogleThemeMood",
-
+    API_KET: "e9a4934c51a940119b91329b8c658223",
+    BASE_URL: "https://newsapi.org/v2/everything",
+    searchPlaceHolder : "searchPlaceHolder",
 }

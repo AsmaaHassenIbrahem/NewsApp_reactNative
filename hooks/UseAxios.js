@@ -1,23 +1,29 @@
 import { useEffect, useState} from 'react';
-import axios from 'axios';
 
+const useAxios = (configObj) => {
+  const {
+    responseObject, 
+      axiosInstance,
+      method,
+      url='/',
+      requestConfig = {}
+  } = configObj;
 
-const UseAxios = () => {
-  const [newsData, setNewsData] = useState([]);
+  const [response, setResponse] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  // const controller = new AbortController();
 
-  const url = "https://newsapi.org/v2/everything?q=tesla&from=2023-11-10&sortBy=publishedAt&apiKey=e9a4934c51a940119b91329b8c658223&pageSize=30";
-
-  
   const fetchData = async () => {
     try {
       setLoading(true)
-      const response = await axios.get(url, {
-        'Content-Type': 'application/json'});
-      setNewsData(response.data.articles);
+      const responseData = await axiosInstance[method.toLowerCase()](url, {
+        ...requestConfig,
+        // signal: controller.signal
+    });
+      setResponse(responseData.data[responseObject]);
     } catch (error) {
-      console.log("error "+ error)
+      console.log("errorFrom Api "+ error)
 
       setError(error)
     }
@@ -25,15 +31,17 @@ const UseAxios = () => {
   };
 
   useEffect(() => {
+
     fetchData();
+    // return () => controller.abort();
   }, []);
 
   return {
-    newsData,
+    response,
     loading,
     error
   };
 };
 
-export default UseAxios;
+export default useAxios;
 

@@ -9,4 +9,5 @@ export default {
   light: "نهاري",
   english: "الانجليزية",
   arabic: "العربيه",
+  searchPlaceHolder :"  بحث ....",
 };
