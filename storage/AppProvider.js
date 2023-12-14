@@ -20,6 +20,10 @@ export const AppProvider = ({ children }) => {
    sortTheme(!storedThemeValue)
   }
 
+  useEffect(()=>{
+      i18n.changeLanguage(storedLanguageValue);
+  },[storedLanguageValue,storedThemeValue]);
+
   return (
     <AppContext.Provider
       value={{
