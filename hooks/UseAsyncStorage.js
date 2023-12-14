@@ -16,6 +16,10 @@ const useAsyncStorage = (key, initialvalue) => {
     }
   
     useEffect(() => {
+      console.log("useEffect1 key ===> " + key)
+      
+      console.log("useEffect1 init ===> " + initialvalue)
+
         getStoredItem(key, initialvalue);
     }, [key, initialvalue]);
   

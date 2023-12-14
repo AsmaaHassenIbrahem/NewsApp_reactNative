@@ -4,10 +4,10 @@ import { AppProvider } from "./storage/AppProvider";
 
 export default function App() {
   return (
+
     <AppProvider>
       <StatusBar style="dark" />
       <MainNavigation></MainNavigation>
     </AppProvider>
   );
 }
-
